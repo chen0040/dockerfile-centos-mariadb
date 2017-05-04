@@ -2,6 +2,8 @@
 
 Package provides the dockerfile which setup and run the mariadb on centos VM with configuration overwrite and database setup
 
+![Docker Project logo](docker.png) ![Mariadb Project logo](mariadb.png)
+
 # Features
 
 * The docker image is built from centos/systemd 
@@ -32,7 +34,7 @@ You can optionally save the image by running the following command:
 docker save -o xschen-mariadb.img xschen/mariadb
 ```
 
-## Create the mariadb and start the docker container
+## Create and start the docker container
 
 ```bash
 docker run -it --name=xschen-mariadb -u 0  -d -p 3306:3306 xschen/mariadb
@@ -48,6 +50,25 @@ jdbc:mysql://127.0.0.1:3306/my_database?useSSL=false&useUnicode=yes&characterEnc
 
 Note that 127.0.0.1 may need to be replaced with the ip of your docker machine VM (depends how you set up your docker machine)
 
+## Start and stop the mariadb in the container
+
+To start or stop the mariadb in the container, make sure that the container is running, then run the following command from your local computer:
+
+```bash
+docker exec -it xschen-mariadb /bin/bash
+```
+
+Once in the container, run the following command to start or stop the mariadb:
+
+```bash
+$ cd /home/xschen
+$ sudo ./start.sh
+```
+
+```bash
+$ cd /home/xschen
+$ sudo ./stop.sh
+```
 
 
 
