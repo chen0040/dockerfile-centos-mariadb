@@ -32,6 +32,21 @@ You can optionally save the image by running the following command:
 docker save -o xschen-mariadb.img xschen/mariadb
 ```
 
+## Create the mariadb and start the docker container
+
+```bash
+docker run -it --name=xschen-mariadb -u 0  -d -p 3306:3306 xschen/mariadb
+```
+
+Now you should be able to connect to the mariadb from your local computer at the port 3306, 
+ 
+an example of the data source url will be:
+
+<pre>
+jdbc:mysql://127.0.0.1:3306/my_database?useSSL=false&useUnicode=yes&characterEncoding=UTF-8
+</pre>
+
+Note that 127.0.0.1 may need to be replaced with the ip of your docker machine VM (depends how you set up your docker machine)
 
 
 
